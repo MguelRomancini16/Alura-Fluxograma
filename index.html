@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operação Blackout: A Ascensão dos Fantasmas</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1a1a1a, #333333);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            max-width: 800px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+        h1, h2, h3 {
+            margin-top: 0;
+        }
+        h1 {
+            font-size: 2.5em;
+        }
+        h2 {
+            font-size: 2em;
+        }
+        h3 {
+            font-size: 1.5em;
+        }
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+        .navigation {
+            text-align: center;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #FF5722;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #FF3D00;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Operação Blackout: A Ascensão dos Fantasmas</h1>
+        
+        <div id="pages">
+            <div class="page active">
+                <h2>Capítulo 1: O Início da Tempestade</h2>
+                <p>Em uma noite fria e chuvosa, o mundo foi abalado por um ataque surpresa de uma nova facção terrorista conhecida como "Os Falcões Negros". Com uma série de ataques coordenados em várias capitais ao redor do mundo, o grupo demonstrou um nível de sofisticação e crueldade nunca antes visto. Os líderes das nações mais poderosas se reuniram para enfrentar a ameaça, mas estavam desesperados por uma solução rápida e eficaz.</p>
+            </div>
+            
+            <div class="page">
+                <h2>Capítulo 2: O Recrutamento dos Fantasmas</h2>
+                <p>No centro de toda essa crise, um grupo de elite conhecido como "Os Fantasmas" foi chamado para a missão mais perigosa de suas carreiras. Comandados pelo enigmático Capitão Alex "Ghost" Mason, os Fantasmas são conhecidos por suas habilidades excepcionais e pela capacidade de realizar operações impossíveis sem deixar rastros. Eles são a última linha de defesa contra os Falcões Negros.</p>
+            </div>
+            
+            <div class="page">
+                <h2>Capítulo 3: A Infiltração</h2>
+                <p>A missão inicial dos Fantasmas é infiltrar-se em uma base secreta dos Falcões Negros localizada em uma ilha remota no Pacífico. Com tecnologia de ponta e um planejamento meticuloso, eles se infiltram na base, encontrando documentos que revelam planos para uma nova arma devastadora que poderia mudar o curso da guerra. Mas, ao se prepararem para escapar, são traídos por um informante dentro da agência de inteligência.</p>
+            </div>
+            
+            <div class="page">
+                <h2>Capítulo 4: O Contra-Ataque</h2>
+                <p>Agora fugitivos e caçados, os Fantasmas devem lutar contra forças inimigas e limpar seu nome enquanto tentam impedir o lançamento da arma. A perseguição leva-os por várias localidades, desde os bairros mais perigosos de uma grande metrópole até as áridas montanhas do Oriente Médio. Cada passo é um jogo de gato e rato, onde eles precisam usar todas as suas habilidades para sobreviver e desvendar o verdadeiro mestre por trás dos Falcões Negros.</p>
+            </div>
+            
+            <div class="page">
+                <h2>Capítulo 5: O Confronto Final</h2>
+                <p>A última batalha acontece em um complexo subterrâneo fortificado. Os Fantasmas enfrentam a elite dos Falcões Negros em um confronto épico. O Capitão Mason lidera a carga, desmantelando a arma e derrotando o líder dos Falcões Negros, um ex-agente da CIA que tinha suas próprias razões para causar o caos. Com a missão cumprida, o mundo começa a se recuperar da devastação.</p>
+            </div>
+            
+            <div class="page">
+                <h2>Epílogo: O Legado dos Fantasmas</h2>
+                <p>Com a ameaça neutralizada, os Fantasmas retornam à base, mas a sombra da traição e da luta permanece. Embora tenham salvado o mundo, a guerra nunca é realmente vencida. O Capitão Mason reflete sobre o custo da missão e o futuro incerto, mas a equipe está pronta para enfrentar qualquer desafio que venha a seguir. Os Fantasmas continuarão a operar nas sombras, sempre prontos para a próxima tempestade que se aproxima.</p>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <button id="prevBtn">Página Anterior</button>
+            <button id="nextBtn">Próxima Página</button>
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 0;
+        const pages = document.querySelectorAll('.page');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        function updatePage() {
+            pages.forEach((page, index) => {
+                page.classList.toggle('active', index === currentPage);
+            });
+            prevBtn.disabled = currentPage === 0;
+            nextBtn.disabled = currentPage === pages.length - 1;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            if (currentPage > 0) {
+                currentPage--;
+                updatePage();
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentPage < pages.length - 1) {
+                currentPage++;
+                updatePage();
+            }
+        });
+
+        // Inicializa a página
+        updatePage();
+    </script>
+</body>
+</html>

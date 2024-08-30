@@ -1,0 +1,81 @@
+/* Estilos gerais para o corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: url('path/to/your/blood-background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Estilos para o container da história */
+.container {
+    max-width: 800px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8); /* Fundo preto com opacidade */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+/* Títulos principais */
+h1, h2, h3 {
+    margin-top: 0;
+    color: #ff0000; /* Vermelho sangue para os títulos */
+}
+
+/* Estilo para a navegação entre páginas */
+.navigation {
+    text-align: center;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #FF5722; /* Laranja */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 10px;
+}
+
+button:hover {
+    background-color: #FF3D00; /* Laranja mais escuro para o hover */
+}
+
+/* Estilo para os blocos de perguntas */
+.question-block {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ff0000; /* Borda vermelha sangue */
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.9); /* Fundo preto com opacidade */
+}
+
+.question-block h3 {
+    margin-top: 0;
+}
+
+/* Esconde as perguntas inicialmente */
+.page {
+    display: none;
+}
+
+/* Exibe a página ativa */
+.page.active {
+    display: block;
+}
+
+/* Botão para verificar respostas */
+button#checkAnswersBtn {
+    display: none;
+}
